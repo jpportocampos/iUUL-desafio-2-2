@@ -23,7 +23,4 @@ export class OperationErrors {
     static get CONVERSION_ERROR() {
         return 5;
     }
-    static get UNEXISTING_CURRENCY() {
-        return 6;
-    }
 }

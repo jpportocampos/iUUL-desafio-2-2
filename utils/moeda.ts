@@ -1,3 +1,7 @@
 export function validaMoeda(moeda) {
-    return true;
+    if (moeda.length !== 3) {
+        return false;
+    } else {
+        return true;
+    }
 }

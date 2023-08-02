@@ -40,6 +40,11 @@ export default class ConversaoView {
         return { moedaOrigem, moedaDestino, valor };
     }
 
+    listData(data) {
+        this.output.writeLine(data.moedaOrigem + " " + data.valor + " => " + data.moedaDestino + " " + data.valorConvertido);
+        this.output.writeLine("Taxa: " + data.taxa);
+    }
+
     process(status, errors) {
         if (status === OperationStatus.SUCCESS) {
             this.output.writeLine('\nValores válidos');
@@ -71,10 +76,6 @@ export default class ConversaoView {
         this.messages.set(
             OperationErrors.CONVERSION_ERROR,
             '- Ocorreu um erro na conversão do valor.'
-        );
-        this.messages.set(
-            OperationErrors.UNEXISTING_CURRENCY,
-            '- Moeda inválida. A moeda não existe.'
         );
     }
 }

@@ -19,13 +19,9 @@ export default class ConversaoPresenter {
         if (result.status !== OperationStatus.SUCCESS) {
             this.view.process(result.status, result.errors);
         } else {
-            result = this.controller.convert(data);
+            let resultData = this.controller.convert(data);
 
-            if (result.status === OperationStatus.SUCCESS) {
-                this.view.process(OperationStatus.SUCCESS, null);
-            } else {
-                this.view.process(OperationStatus.FAILURE, result.errors);
-            }
+            this.view.listData(resultData);
         }
     }
 }
