@@ -10,7 +10,7 @@ export default class MenuPresenter {
         this.view = new Menu();
     }
 
-    run() {
+    public async run() {
         for (;;) {
             let option = this.view.getOption();
 
@@ -19,7 +19,7 @@ export default class MenuPresenter {
                     return;
 
                 case 0:
-                    this.controller.converteMoeda();
+                    await this.controller.converteMoeda();
                     break;
             }
         }

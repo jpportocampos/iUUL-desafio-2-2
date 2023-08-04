@@ -1,26 +1,26 @@
 export class OperationStatus {
-    static get SUCCESS() {
+    public static get SUCCESS() {
         return 1;
     }
-    static get FAILURE() {
+    public static get FAILURE() {
         return 2;
     }
 }
 
 export class OperationErrors {
-    static get CURRENCY_IS_SAME() {
+    public static get CURRENCY_IS_SAME() {
         return 1;
     }
-    static get INVALID_CURRENCY() {
+    public static get INVALID_CURRENCY() {
         return 2;
     }
-    static get INVALID_VALUE() {
+    public static get INVALID_VALUE() {
         return 3;
     }
-    static get API_ERROR() {
+    public static get API_ERROR() {
         return 4;
     }
-    static get CONVERSION_ERROR() {
+    public static get CONVERSION_ERROR() {
         return 5;
     }
 }

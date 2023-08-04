@@ -1,9 +1,9 @@
 export default class Output {
-    write(data) {
+    public write(data) {
         process.stdout.write(data);
     }
 
-    writeLine(data) {
+    public writeLine(data) {
         process.stdout.write(`${data}\n`);
     }
 }

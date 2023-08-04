@@ -11,7 +11,7 @@ export default class Menu {
         let exitOption: string = '';
 
         for (;;) {
-            let choice = this.input = this.input.readString(
+            let choice = this.input.readString(
                 'Bem-vindo ao conversor, digite qualquer coisa para prosseguir e nada para encerrar: ',
                 'Insira um valor válido',
                 { capitalize: true }

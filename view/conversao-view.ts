@@ -15,10 +15,10 @@ export default class ConversaoView {
         this.output = new Output();
         this.messages = new Map();
 
-        this.#setupMessages();
+        this.setupMessages();
     }
 
-    readData() {
+    public readData() {
         const moedaOrigem = this.input.readString(
             'Moeda origem: ',
             'Moeda inválida',
@@ -40,12 +40,12 @@ export default class ConversaoView {
         return { moedaOrigem, moedaDestino, valor };
     }
 
-    listData(data) {
-        this.output.writeLine(data.moedaOrigem + " " + data.valor + " => " + data.moedaDestino + " " + data.valorConvertido);
-        this.output.writeLine("Taxa: " + data.taxa);
+    public listData(data) {
+        this.output.writeLine("\n" + data.query.from + " " + parseFloat(data.query.amount).toFixed(2) + " => " + data.query.to + " " + parseFloat(data.result).toFixed(2));
+        this.output.writeLine("Taxa: " + parseFloat(data.info.rate).toFixed(6));
     }
 
-    process(status, errors) {
+    public process(status, errors) {
         if (status === OperationStatus.SUCCESS) {
             this.output.writeLine('\nValores válidos');
         } else {
@@ -56,7 +56,7 @@ export default class ConversaoView {
         }
     }
 
-    #setupMessages() {
+    private setupMessages() {
         this.messages.set(
             OperationErrors.CURRENCY_IS_SAME,
             '- Moeda inválida. A moeda de destino deve ser diferente da moeda de origem.'

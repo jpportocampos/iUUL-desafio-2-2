@@ -2,11 +2,11 @@ import ConversaoController from "./conversao-controller";
 import ConversaoPresenter from "../presenter/conversao-presenter";
 
 export default class MainController {
-    converteMoeda() {
+    public async converteMoeda() {
         const controller = new ConversaoController();
 
         const presenter = new ConversaoPresenter(controller);
 
-        presenter.run();
+        await presenter.run();
     }
 }

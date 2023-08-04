@@ -10,7 +10,7 @@ export default class Input {
         this.output = new Output();
     }
 
-    readString(label: string, errorMsg: string, options: { min?: number, max?: number, capitalize?: boolean, validChars?: string | Array<string>, regExp?: any, isValid?: any }) {
+    public readString(label: string, errorMsg: string, options: { min?: number, max?: number, capitalize?: boolean, validChars?: string | Array<string>, regExp?: any, isValid?: any }) {
         const min = options.min || 0;
         const max = options.max || 10000;
         const capitalize = options.capitalize || false;
@@ -40,7 +40,7 @@ export default class Input {
         }
     }
 
-    readFloat(label: string, errorMsg: string, options: { min?: number, max?: number, minDecimals?: number, maxDecimals?: number, isValid?: any }) {
+    public readFloat(label: string, errorMsg: string, options: { min?: number, max?: number, minDecimals?: number, maxDecimals?: number, isValid?: any }) {
         const min = options.min || -Number.MIN_VALUE;
         const max = options.max || Number.MAX_VALUE;
         const minDecimals = options.minDecimals || 0;

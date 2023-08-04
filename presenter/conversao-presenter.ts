@@ -11,7 +11,7 @@ export default class ConversaoPresenter {
         this.view = new ConversaoView();
     }
 
-    run() {
+    public async run() {
         const data = this.view.readData();
 
         let result = this.controller.canConvert(data);
@@ -19,9 +19,13 @@ export default class ConversaoPresenter {
         if (result.status !== OperationStatus.SUCCESS) {
             this.view.process(result.status, result.errors);
         } else {
-            let resultData = this.controller.convert(data);
+            let resultData = await this.controller.convert(data);
 
-            this.view.listData(resultData);
+            if (resultData.status === OperationStatus.FAILURE) {
+                this.view.process(resultData.status, resultData.errors);
+            } else {
+                this.view.listData(resultData);
+            }
         }
     }
 }
